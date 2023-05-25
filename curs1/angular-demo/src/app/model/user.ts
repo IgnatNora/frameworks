@@ -1,5 +1,6 @@
 export interface User {
-    id: 1;
-    nume: 'Ion';
-    prenume: 'Dan'
+    id: number,
+    nume: string,
+    prenume:string,
+    telefon?:number,
 }
