@@ -1,1 +1,47 @@
-<p>admin works!</p>
+<div class="container">
+    <h1>Adaugare / editare user</h1>
+    <form #f="ngForm" novalidate>
+        <div  class="form-group" >
+          <label for="nume">Prenume</label>
+          <input [(ngModel)]="selectedUser.nume" #nume="ngModel" type="text" class="form-control" name="nume" id="nume" aria-describedby="nume" required minlength="3" maxlength="250" pattern="^[a-zA-Z-]+$" 
+          [class.is-invalid]='nume.invalid && (nume.dirty || nume.touched)'>
+          <small *ngIf='nume.invalid' id="numeHelp" class="form-text text-muted">We'll never share your name with anyone else.</small>
+          <div *ngIf="nume.invalid && (nume.dirty || nume.touched)" class="invalid-feedback">
+            <div *ngIf="nume.errors?.['required']">
+                Acest camp este obligatoriu.
+            </div>
+            <div *ngIf="nume.errors?.['minlength']">
+                Acest camp trebuie sa fie de minim 3.
+            </div>
+            <div *ngIf="nume.errors?.['maxlength']">
+                Acest camp trebuie sa fie de maxim 250.
+            </div>
+            <div *ngIf="nume.errors?.['pattern']">
+                Acest camp trebuie sa contina doar caractere alfanumerice si -.
+            </div>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="prenume">Prenume</label>
+          <input type="text" class="form-control" name="prenume" id="prenume" aria-describedby="prenume" placeholder="Scrie prenumele">
+          <small id="prenumeHelp" class="form-text text-muted">We'll never share your prenume with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="mail">Mail</label>
+          <input type="mail" class="form-control" name="mail" id="mail" aria-describedby="mail" placeholder="Scrie emailul">
+          <small id="mailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="data-nastere">Data de nastere</label>
+          <input type="data" class="form-control" name="data-nastere" id="data-nastere" aria-describedby="data-nastere" placeholder="Scrie data nasterii">
+          <small id="dataHelp" class="form-text text-muted">We'll never share your data nastere with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="telefon">Data de nastere</label>
+          <input type="text" class="form-control" name="telefon" id="telefon" aria-describedby="telefon" placeholder="Scrie numarul de telefon">
+          <small id="telefonHelp" class="form-text text-muted">We'll never share your telefon with anyone else.</small>
+        </div>
+        <button  type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
